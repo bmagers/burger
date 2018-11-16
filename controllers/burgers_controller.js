@@ -2,7 +2,6 @@ var express = require("express");
 var router = express.Router();
 var burger = require("../models/burger.js");
 
-// selectAll, insertOne, updateOne
 router.get("/index", function(req, res) {
   burger.selectAll(function(data) {
     var hbsObject = {
@@ -36,6 +35,10 @@ router.put("/api/burgers/:id", function(req, res) {
       res.status(200).end();
     }
   });
+});
+
+router.get("*", function(req, res) {
+  res.redirect("/index");
 });
 
 module.exports = router;

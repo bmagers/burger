@@ -1,11 +1,20 @@
 <h1>Eat-Da-Burger</h1>
 
+<h2>Burgers Ordered</h2>
 <ol>
   {{#each burgers}}
-    <li>
-      {{burger_name}}
-      <button class="devourIt" data-id="{{this.id}}">Devour it!</button>
-    </li>
+    {{#unless devoured}}
+      {{> burgerList}}
+    {{/unless}}
+  {{/each}}
+</ol>
+
+<h2>Burgers Devoured</h2>
+<ol>
+  {{#each burgers}}
+    {{#if devoured}}
+      {{> burgerList}}
+    {{/if}}
   {{/each}}
 </ol>
 
