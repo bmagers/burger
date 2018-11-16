@@ -13,6 +13,16 @@ router.get("/index", function(req, res) {
   });
 });
 
-
+router.post("/api/burgers", function(req, res) {
+  burger.insertOne([
+    "burger_name", "devoured"
+  ], [
+    req.body.burger_name, false
+  ], function(result) {
+    console.log("added burger: " + req.body.burger_name);
+    console.log(" and id is " + result.insertId);
+    res.json({ id: result.insertId });
+  });
+});
 
 module.exports = router;

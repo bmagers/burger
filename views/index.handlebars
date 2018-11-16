@@ -2,9 +2,15 @@
 
 <ol>
   {{#each burgers}}
-    <li>{{burger_name}}</li>
+    <li>
+      {{burger_name}}
+      <button class="devourIt" data-id="{{this.id}}">Devour it!</button>
+    </li>
   {{/each}}
 </ol>
 
-<textarea name="burgerInput"></textarea>
-<button name="submit" type="submit">Submit</button>
+<h2>Order a Burger</h2>
+<form class="orderForm">
+  <textarea class="burgerInput"></textarea>
+  <button type="submit">Order it!</button>
+</form>

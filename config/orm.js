@@ -46,17 +46,24 @@ var orm = {
   },
 
   insertOne: function(table, cols, vals, cb) {
-    var queryString = "INSERT INTO " + table + " (" + col.toString();
-    queryString += ") VALS (" + printQuestionMarks(vals.length) + ")";
-    if (err) throw err;
-    cb(res);
+    var queryString = "INSERT INTO " + table + " (" + cols.toString();
+    queryString += ") VALUES (" + printQuestionMarks(vals.length) + ")";
+    console.log(queryString);
+    console.log(vals);
+    connection.query(queryString, vals, function(err, res) {
+      if (err) throw err;
+      cb(res);
+    });
   },
 
   updateOne: function(table, objColVals, condition, cb) {
-    var queryString = "UPDATE " + table + " SET " + objColVals;
+    var queryString = "UPDATE " + table + " SET " + objToSql(objColVals);
     queryString += " WHERE " + condition;
-    if (err) throw err;
-    cb(res);
+    console.log(queryString);
+    connection.query(queryString, function(err, res) {
+      if (err) throw err;
+      cb(res);
+    });
   }
 
 };
