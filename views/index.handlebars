@@ -1,25 +1,37 @@
 <h1>Eat-Da-Burger</h1>
 
-<h2>Burgers Ordered</h2>
-<ol>
-  {{#each burgers}}
-    {{#unless devoured}}
-      {{> burgerList}}
-    {{/unless}}
-  {{/each}}
-</ol>
+<div id="container">
 
-<h2>Burgers Devoured</h2>
-<ol>
-  {{#each burgers}}
-    {{#if devoured}}
-      {{> burgerList}}
-    {{/if}}
-  {{/each}}
-</ol>
+  <div id="orderForm">
+    <h2>Order a Burger</h2>
+    <form class="orderForm">
+      <textarea rows="5" cols="40" class="burgerInput"></textarea>
+      <br>
+      <button type="submit">Order it!</button>
+    </form>
+  </div>
+  <br>
 
-<h2>Order a Burger</h2>
-<form class="orderForm">
-  <textarea class="burgerInput"></textarea>
-  <button type="submit">Order it!</button>
-</form>
+  <div id="burgersOrdered" class="burgerList">
+    <h2>Burgers Ordered</h2>
+    <ol>
+      {{#each burgers}}
+        {{#unless devoured}}
+          {{> burgerList}}
+        {{/unless}}
+      {{/each}}
+    </ol>
+  </div>
+
+  <div id="burgersDevoured" class="burgerList">
+    <h2>Burgers Devoured</h2>
+    <ol>
+      {{#each burgers}}
+        {{#if devoured}}
+          {{> burgerList}}
+        {{/if}}
+      {{/each}}
+    </ol>
+  </div>
+
+</div>
