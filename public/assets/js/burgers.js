@@ -1,5 +1,5 @@
-$(function() {
-
+$(document).on('ready',(function() {
+  console.log("burgers.js loading properly")
   $(".orderForm").on("submit", function(event) {
 
     event.preventDefault();
@@ -38,4 +38,4 @@ $(function() {
 
   });
 
-});
+}));
